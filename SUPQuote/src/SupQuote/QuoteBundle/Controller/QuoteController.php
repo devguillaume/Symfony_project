@@ -67,7 +67,7 @@ class QuoteController extends Controller
 
     /**
      * @Route("/edit/{id}")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("has_role('ROLE_ADMIN')")
      * @Template()
      */
     public function editAction(Request $request, $id)
@@ -91,7 +91,7 @@ class QuoteController extends Controller
 
     /**
      * @Route("/delete/{id}")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("has_role('ROLE_ADMIN')")
      * @Template()
      */
     public function deleteAction($id)
