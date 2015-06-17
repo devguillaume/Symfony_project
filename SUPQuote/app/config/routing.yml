@@ -1,0 +1,17 @@
+sup_quote_user:
+    resource: "@SupQuoteUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+sup_quote_quote:
+    resource: "@SupQuoteQuoteBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

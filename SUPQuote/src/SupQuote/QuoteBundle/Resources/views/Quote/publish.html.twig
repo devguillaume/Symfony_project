@@ -1,0 +1,12 @@
+{% extends "@App/layout.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {{ quote.content }}
+        </div>
+        <div class="row">
+            <span class="text-success"><i class="fa fa-success"></i> Votre contenu à été publié.</span>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+<div class="container">
+    {% for quote in quotes %}
+        <p class="alert{% if quote.published %} alert-success{% else %} alert-danger{% endif %}">
+            {{ quote.content }}
+                <br>
+                <br>
+                <strong>Date de mise en ligne:</strong> {{ quote.createAt | date("d:m:Y H:m:s") }}
+                <br>
+                <strong>Edité par: </strong>{{ quote.user.username}}</strong>
+                <br>
+            <br>
+                {#Lien vers l'article selon son id#}
+                <a href="{{ path('supquote_quote_quote_show', {'id': quote.id}) }}" class="btn btn-info">Voir l'article</a>
+
+                {% if not quote.published and app.security.granted('ROLE_ADMIN') %}
+                    <a href="{{ path('supquote_quote_quote_publish', {id: quote.id}) }} "class="btn btn-info">Publier l'article</a>
+                {% endif %}
+
+                {% if app.security.granted('ROLE_ADMIN') %}
+                    <a href="{{ path('supquote_quote_quote_edit', {id: quote.id}) }}"class="btn btn-info">Editer l'article</a>
+                    <a href="{{ path('supquote_quote_quote_delete', {id: quote.id}) }}"class="btn btn-info">Supprimer l'article</a>
+                {% endif %}
+            </p>
+
+        <br/>
+    {% endfor %}
+
+</div>
